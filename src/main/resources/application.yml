@@ -1,9 +1,9 @@
 server:
-  port: 9098
+  port: 2008
 spring:
 
   datasource:
-    url: jdbc:mysql://localhost:3306/sharath
+    url: jdbc:mysql://db:3306/springboot
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
