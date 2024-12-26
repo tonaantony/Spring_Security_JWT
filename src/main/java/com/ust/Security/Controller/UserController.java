@@ -2,6 +2,8 @@ package com.ust.Security.Controller;
 
 
 import com.ust.Security.dto.AuthRequest;
+import com.ust.Security.dto.ForgotPasswordRequest;
+import com.ust.Security.dto.ResetPasswordRequest;
 import com.ust.Security.model.Job;
 import com.ust.Security.model.Userinfo;
 import com.ust.Security.service.Jobservice;
@@ -56,6 +58,18 @@ public class UserController {
         }
 
 
+    }
+
+    @PostMapping("/forgot-password")
+    public String forgotPassword(@RequestBody ForgotPasswordRequest forgotPasswordRequest) {
+        service.sendResetToken(forgotPasswordRequest.getEmail());
+        return "Password reset link has been sent to your email.";
+    }
+
+    @PostMapping("/reset-password")
+    public String resetPassword(@RequestParam("token") String token, @RequestBody ResetPasswordRequest resetPasswordRequest) {
+        service.resetPassword(token, resetPasswordRequest.getNewPassword());
+        return "Password has been successfully reset.";
     }
 
 

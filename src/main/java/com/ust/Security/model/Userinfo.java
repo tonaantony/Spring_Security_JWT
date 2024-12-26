@@ -1,5 +1,8 @@
 package com.ust.Security.model;
 
+
+import java.util.Date;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,4 +21,6 @@ public class Userinfo {
     private String email;
     private String password;
     private String roles;
+    private String resetToken;
+    private Date resetTokenExpiry;
 }
